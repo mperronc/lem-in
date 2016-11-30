@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                         :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mperronc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/25 16:36:21 by mperronc          #+#    #+#             */
-/*   Updated: 2016/11/25 16:46:54 by mperronc         ###   ########.fr       */
+/*   Created: 2015/11/24 14:30:03 by mperronc          #+#    #+#             */
+/*   Updated: 2016/02/12 11:43:51 by mperronc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incl/lenine.h"
-#include "../incl/dict.h"
+#include "../incl/libft.h"
 
-int		main(void)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	t_dict		**table;
-	t_dict		*elem;
+	char	*fs;
 
-	table = (t_dict **)malloc(sizeof(t_dict *) * HASHSIZE);
-	append_entry(table, "toto", 1);
-	elem = get_value(table, "toto");
-	ft_printf("%d\n", elem->value);
+	fs = ft_strnew(len);
+	if (fs == NULL)
+		return (NULL);
+	fs = ft_strncpy(fs, s + start, len);
+	fs[len] = 0;
+	return (fs);
 }

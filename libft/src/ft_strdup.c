@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                         :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mperronc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/25 16:36:21 by mperronc          #+#    #+#             */
-/*   Updated: 2016/11/25 16:46:54 by mperronc         ###   ########.fr       */
+/*   Created: 2015/11/23 17:39:22 by mperronc          #+#    #+#             */
+/*   Updated: 2016/02/10 11:56:55 by mperronc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incl/lenine.h"
-#include "../incl/dict.h"
+#include <stdlib.h>
+#include "../incl/libft.h"
 
-int		main(void)
+char	*ft_strdup(const char *s1)
 {
-	t_dict		**table;
-	t_dict		*elem;
+	char	*p1;
+	char	*p2;
+	char	*ret;
 
-	table = (t_dict **)malloc(sizeof(t_dict *) * HASHSIZE);
-	append_entry(table, "toto", 1);
-	elem = get_value(table, "toto");
-	ft_printf("%d\n", elem->value);
+	p1 = (char *)s1;
+	p2 = (char *)malloc(ft_strlen(s1) * sizeof(char) + 1);
+	if (p2 == NULL)
+		return (NULL);
+	ret = p2;
+	while (*p1 != 0)
+	{
+		*p2 = *p1;
+		p1++;
+		p2++;
+	}
+	*p2 = 0;
+	return (ret);
 }

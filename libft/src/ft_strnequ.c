@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                         :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mperronc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/25 16:36:21 by mperronc          #+#    #+#             */
-/*   Updated: 2016/11/25 16:46:54 by mperronc         ###   ########.fr       */
+/*   Created: 2015/11/24 14:23:24 by mperronc          #+#    #+#             */
+/*   Updated: 2016/02/11 17:44:15 by mperronc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incl/lenine.h"
-#include "../incl/dict.h"
+#include "../incl/libft.h"
 
-int		main(void)
+int		ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	t_dict		**table;
-	t_dict		*elem;
-
-	table = (t_dict **)malloc(sizeof(t_dict *) * HASHSIZE);
-	append_entry(table, "toto", 1);
-	elem = get_value(table, "toto");
-	ft_printf("%d\n", elem->value);
+	if (ft_strncmp(s1, s2, n) == 0)
+		return (1);
+	return (0);
 }

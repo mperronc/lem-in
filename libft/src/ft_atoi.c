@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                         :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mperronc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/25 16:36:21 by mperronc          #+#    #+#             */
-/*   Updated: 2016/11/25 16:46:54 by mperronc         ###   ########.fr       */
+/*   Created: 2015/11/24 10:28:56 by mperronc          #+#    #+#             */
+/*   Updated: 2016/02/11 17:37:52 by mperronc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incl/lenine.h"
-#include "../incl/dict.h"
+#include "../incl/libft.h"
 
-int		main(void)
+int		ft_atoi(const char *str)
 {
-	t_dict		**table;
-	t_dict		*elem;
+	int		res;
+	int		sign;
 
-	table = (t_dict **)malloc(sizeof(t_dict *) * HASHSIZE);
-	append_entry(table, "toto", 1);
-	elem = get_value(table, "toto");
-	ft_printf("%d\n", elem->value);
+	while (*str == ' ' || *str == '\t' || *str == '\n' ||
+			*str == '\v' || *str == '\f' || *str == '\r')
+		str++;
+	res = 0;
+	sign = 1;
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			sign = -1;
+		str++;
+	}
+	while (ft_isdigit((int)*str))
+	{
+		res = res * 10 + *str - '0';
+		str++;
+	}
+	return (res * sign);
 }

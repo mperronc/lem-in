@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print.c                                            :+:      :+:    :+:   */
+/*   ft_strctrim.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mperronc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/25 16:36:21 by mperronc          #+#    #+#             */
-/*   Updated: 2016/11/25 16:46:54 by mperronc         ###   ########.fr       */
+/*   Created: 2015/11/24 14:42:11 by mperronc          #+#    #+#             */
+/*   Updated: 2016/02/12 17:22:02 by mperronc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incl/lenine.h"
+#include "../incl/libft.h"
 
-void	print_graph(t_graph *graph)
+char	*ft_strctrim(char const *s, char c)
 {
-	int		i;
-	t_link	*tmp;
+	unsigned int		start;
+	int					end;
+	char				*res;
 
-	i = 0;
-	while (i < graph->n_nodes)
+	start = 0;
+	while (s[start] == c)
+		start++;
+	if (start == ft_strlen(s))
 	{
-		tmp = graph->adj_list[i].head;
-		printf("\n Adjacency list of vertex %d\n head ", i);
-		while (tmp)
-		{
-			printf("-> %d ", tmp->dest);
-			tmp = tmp->next;
-		}
-		printf("\n");
-		i++;
+		res = ft_strnew(1);
+		return (res);
 	}
+	end = ft_strlen(s) - 1;
+	while (s[end] == c)
+		end--;
+	end++;
+	res = ft_strsub(s, start, end - start);
+	if (res == NULL)
+		return (NULL);
+	res[end - start] = 0;
+	return (res);
 }

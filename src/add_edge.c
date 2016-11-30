@@ -14,12 +14,12 @@
 
 void	add_edge(t_graph *graph, int src, int dest)
 {
-	t_node	*node;
+	t_link	*link;
 
-	node = new_node(dest);
-	node->next = graph->adj_list[src].head;
-	graph->adj_list[src].head = node;
-	node = new_node(src);
-	node->next = graph->adj_list[dest].head;
-	graph->adj_list[dest].head = node;
+	link = new_link(dest);
+	link->next = graph->adj_list[src].head;
+	graph->adj_list[src].head = link;
+	link = new_link(src);
+	link->next = graph->adj_list[dest].head;
+	graph->adj_list[dest].head = link;
 }

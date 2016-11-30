@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                         :+:      :+:    :+:   */
+/*   append_entry.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mperronc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,16 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incl/lenine.h"
 #include "../incl/dict.h"
+#include "../incl/lenine.h"
 
-int		main(void)
+t_dict	*append_entry(t_dict **dict, char *key, int value)
 {
-	t_dict		**table;
-	t_dict		*elem;
+	t_dict			*tmp;
+	unsigned int	hashval;
 
-	table = (t_dict **)malloc(sizeof(t_dict *) * HASHSIZE);
-	append_entry(table, "toto", 1);
-	elem = get_value(table, "toto");
-	ft_printf("%d\n", elem->value);
+	if ((tmp = get_value(dict, key)) == NULL)
+	{
+		tmp = (t_dict *)malloc(sizeof(t_dict));
+		if (tmp == NULL || (tmp->key = ft_strdup(key)) == NULL)
+			return (NULL);
+		tmp->value = value;
+		hashval = hash_string(key);
+		tmp->next = dict[hashval];
+		dict[hashval] = tmp;
+	}
+	return (tmp);
 }

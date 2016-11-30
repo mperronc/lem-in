@@ -1,0 +1,25 @@
+10
+##start
+salle1 23 3
+salle2 16 7
+##commentaire
+salle3 16 3
+salle4 16 5
+salle5 9 3
+salle6 1 5
+salle7 4 8
+##end
+salle0 9 5
+salle0-salle4
+salle0-salle6
+salle1-salle3
+salle4-salle3
+salle5-salle2
+salle3-salle5
+#other comment
+salle4-salle2
+salle2-salle1
+salle7-salle6
+salle7-salle2
+salle7-salle4
+salle6-salle5

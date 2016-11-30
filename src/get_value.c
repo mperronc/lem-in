@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                         :+:      :+:    :+:   */
+/*   get_value.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mperronc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,16 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incl/lenine.h"
 #include "../incl/dict.h"
+#include "../incl/lenine.h"
 
-int		main(void)
+t_dict	*get_value(t_dict **dict, char *key)
 {
-	t_dict		**table;
-	t_dict		*elem;
+	t_dict	*tmp;
 
-	table = (t_dict **)malloc(sizeof(t_dict *) * HASHSIZE);
-	append_entry(table, "toto", 1);
-	elem = get_value(table, "toto");
-	ft_printf("%d\n", elem->value);
+	tmp = dict[hash_string(key)];
+	while (tmp)
+	{
+		if (ft_strcmp(key, tmp->key))
+			return (tmp);
+		tmp = tmp->next;
+	}
+	return (NULL);
 }

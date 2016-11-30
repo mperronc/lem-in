@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_node.c                                         :+:      :+:    :+:   */
+/*   ft_max2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mperronc <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/25 16:36:21 by mperronc          #+#    #+#             */
-/*   Updated: 2016/11/25 16:46:54 by mperronc         ###   ########.fr       */
+/*   Created: 2016/02/16 13:11:39 by mperronc          #+#    #+#             */
+/*   Updated: 2016/02/16 13:11:53 by mperronc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incl/lenine.h"
+#include "../incl/libft.h"
 
-t_link		*new_link(int dest)
+int		ft_max2(int x, int y)
 {
-	t_link	*link;
-
-	link = (t_link *)malloc(sizeof(t_link));
-	link->dest = dest;
-	link->next = NULL;
-	return (link);
+	if (x >= y)
+		return (x);
+	return (y);
 }

@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                         :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mperronc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/25 16:36:21 by mperronc          #+#    #+#             */
-/*   Updated: 2016/11/25 16:46:54 by mperronc         ###   ########.fr       */
+/*   Created: 2015/09/05 09:50:17 by mperronc          #+#    #+#             */
+/*   Updated: 2016/02/11 17:44:15 by mperronc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incl/lenine.h"
-#include "../incl/dict.h"
+#include "../incl/libft.h"
 
-int		main(void)
+char	*ft_strrev(char *str)
 {
-	t_dict		**table;
-	t_dict		*elem;
+	size_t	len;
+	char	*start;
+	char	*end;
+	char	temp;
 
-	table = (t_dict **)malloc(sizeof(t_dict *) * HASHSIZE);
-	append_entry(table, "toto", 1);
-	elem = get_value(table, "toto");
-	ft_printf("%d\n", elem->value);
+	start = str;
+	len = ft_strlen(str);
+	end = &str[len - 1];
+	while (str < end)
+	{
+		temp = *str;
+		*str = *end;
+		*end = temp;
+		str++;
+		end--;
+	}
+	str = start;
+	return (str);
 }

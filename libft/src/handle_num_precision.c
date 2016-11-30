@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                         :+:      :+:    :+:   */
+/*   handle_num_precision.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mperronc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/25 16:36:21 by mperronc          #+#    #+#             */
-/*   Updated: 2016/11/25 16:46:54 by mperronc         ###   ########.fr       */
+/*   Created: 2016/09/03 18:39:22 by mperronc          #+#    #+#             */
+/*   Updated: 2016/09/03 18:39:46 by mperronc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incl/lenine.h"
-#include "../incl/dict.h"
+#include "../incl/ft_printf.h"
 
-int		main(void)
+char	*handle_num_precision(char *str, size_t precision)
 {
-	t_dict		**table;
-	t_dict		*elem;
+	char *tmp;
+	char *pstr;
 
-	table = (t_dict **)malloc(sizeof(t_dict *) * HASHSIZE);
-	append_entry(table, "toto", 1);
-	elem = get_value(table, "toto");
-	ft_printf("%d\n", elem->value);
+	tmp = ft_strdup(str);
+	free(str);
+	str = ft_strnew(precision);
+	pstr = str;
+	while (precision > ft_strlen(tmp))
+	{
+		*str = '0';
+		str++;
+		precision--;
+	}
+	ft_strcpy(str, tmp);
+	free(tmp);
+	return (pstr);
 }

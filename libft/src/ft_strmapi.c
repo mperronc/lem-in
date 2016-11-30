@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                         :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mperronc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/25 16:36:21 by mperronc          #+#    #+#             */
-/*   Updated: 2016/11/25 16:46:54 by mperronc         ###   ########.fr       */
+/*   Created: 2015/11/24 12:36:57 by mperronc          #+#    #+#             */
+/*   Updated: 2016/02/12 11:42:34 by mperronc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incl/lenine.h"
-#include "../incl/dict.h"
+#include "../incl/libft.h"
 
-int		main(void)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	t_dict		**table;
-	t_dict		*elem;
+	int		i;
+	char	*fs;
+	char	*res;
 
-	table = (t_dict **)malloc(sizeof(t_dict *) * HASHSIZE);
-	append_entry(table, "toto", 1);
-	elem = get_value(table, "toto");
-	ft_printf("%d\n", elem->value);
+	fs = ft_strnew(ft_strlen(s));
+	if (fs == NULL)
+		return (NULL);
+	res = fs;
+	i = 0;
+	while (*s != 0)
+	{
+		*fs = (*f)(i, *s);
+		fs++;
+		s++;
+		i++;
+	}
+	*fs = 0;
+	return (res);
 }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                         :+:      :+:    :+:   */
+/*   dict.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mperronc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,16 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incl/lenine.h"
-#include "../incl/dict.h"
+#ifndef DICT_H
+# define DICT_H
 
-int		main(void)
+#define HASHSIZE 1009
+
+typedef struct		s_dict
 {
-	t_dict		**table;
-	t_dict		*elem;
+	struct s_dict	*next;
+	char			*key;
+	int				value;
+}					t_dict;
 
-	table = (t_dict **)malloc(sizeof(t_dict *) * HASHSIZE);
-	append_entry(table, "toto", 1);
-	elem = get_value(table, "toto");
-	ft_printf("%d\n", elem->value);
-}
+unsigned int		hash_string(char *s);
+t_dict				*get_value(t_dict **dict, char *key);
+t_dict				*append_entry(t_dict **dict, char *key, int value);
+
+#endif

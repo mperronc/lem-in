@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                         :+:      :+:    :+:   */
+/*   hash_string.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mperronc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,16 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incl/lenine.h"
 #include "../incl/dict.h"
+#include "../incl/lenine.h"
 
-int		main(void)
+unsigned int	hash_string(char *s)
 {
-	t_dict		**table;
-	t_dict		*elem;
+	unsigned int hashval;
 
-	table = (t_dict **)malloc(sizeof(t_dict *) * HASHSIZE);
-	append_entry(table, "toto", 1);
-	elem = get_value(table, "toto");
-	ft_printf("%d\n", elem->value);
+	hashval = 0;
+	while (*s)
+	{
+		hashval = *s + 31 * hashval;
+		s++;
+	}
+	return (hashval % HASHSIZE);
 }

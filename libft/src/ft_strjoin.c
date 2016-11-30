@@ -1,25 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                         :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mperronc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/25 16:36:21 by mperronc          #+#    #+#             */
-/*   Updated: 2016/11/25 16:46:54 by mperronc         ###   ########.fr       */
+/*   Created: 2015/11/24 14:35:38 by mperronc          #+#    #+#             */
+/*   Updated: 2016/02/11 10:05:01 by mperronc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incl/lenine.h"
-#include "../incl/dict.h"
+#include "../incl/libft.h"
+#include <stdlib.h>
 
-int		main(void)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	t_dict		**table;
-	t_dict		*elem;
+	char	*fs;
+	char	*p;
 
-	table = (t_dict **)malloc(sizeof(t_dict *) * HASHSIZE);
-	append_entry(table, "toto", 1);
-	elem = get_value(table, "toto");
-	ft_printf("%d\n", elem->value);
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
+	fs = ft_strnew(ft_strlen(s1) + ft_strlen(s2));
+	if (fs == NULL)
+		return (NULL);
+	p = fs;
+	while (*s1 != 0)
+	{
+		*p = *s1;
+		p++;
+		s1++;
+	}
+	while (*s2 != 0)
+	{
+		*p = *s2;
+		p++;
+		s2++;
+	}
+	*p = 0;
+	return (fs);
 }

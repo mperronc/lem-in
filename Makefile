@@ -19,6 +19,9 @@ SRC_NAME =  add_edge.c \
 			new_graph.c \
 			new_node.c \
 			print_graph.c \
+			append_entry.c \
+			get_value.c \
+			hash_string.c
 
 OBJ_PATH = ./obj/
 
@@ -38,7 +41,8 @@ INC = $(addprefix -I,$(INC_PATH))
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) -o $(NAME) $(CFLAGS) $(OBJ)
+	make -C ./libft
+	$(CC) -o $(NAME) $(CFLAGS) $(OBJ) -L ./libft -lft
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	@mkdir $(OBJ_PATH) 2> /dev/null || echo "" > /dev/null
@@ -47,10 +51,13 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 .PHONY: clean fclean re
 
 clean:
+	make -C ./libft clean
 	rm -fv $(OBJ)
 	@rmdir $(OBJ_PATH) 2> /dev/null || echo "" > /dev/null
 
 fclean: clean
+	make -C ./libft fclean
 	rm -fv $(NAME)
 
 re:	fclean all
+	make -C ./libft re
