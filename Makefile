@@ -16,7 +16,10 @@ SRC_PATH = ./src/
 
 SRC_NAME =	lem-in.c \
 			parser/read_map.c \
-			parser/parse_map.c
+			parser/parse_map.c \
+			parser/get_ants.c \
+			parser/make_rooms.c \
+			parser/allocate_rooms.c
 
 OBJ_PATH = ./obj/
 
