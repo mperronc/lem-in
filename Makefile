@@ -14,7 +14,7 @@
 
 SRC_PATH = ./src/
 
-SRC_NAME =
+SRC_NAME = lem-in.c
 
 OBJ_PATH = ./obj/
 
