@@ -14,7 +14,9 @@
 
 SRC_PATH = ./src/
 
-SRC_NAME = lem-in.c
+SRC_NAME =	lem-in.c \
+			parser/read_map.c \
+			parser/parse_map.c
 
 OBJ_PATH = ./obj/
 
@@ -29,7 +31,7 @@ OBJ_NAME = $(SRC_NAME:.c=.o)
 
 SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
-INC = $(addprefix -I,$(INC_PATH))
+INC = $(addprefix -I, $(INC_PATH))
 
 all: $(NAME)
 

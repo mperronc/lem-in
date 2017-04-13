@@ -4,8 +4,9 @@
 
 int	main(void)
 {
-	char *map;
-	t_graphs
+	char	*map;
+	t_room	**hex;
 
 	map = read_map();
+	hex = parse_map(map);
 }
