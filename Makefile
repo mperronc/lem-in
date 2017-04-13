@@ -14,20 +14,13 @@
 
 SRC_PATH = ./src/
 
-SRC_NAME =  add_edge.c \
-			main.c \
-			new_graph.c \
-			new_node.c \
-			print_graph.c \
-			append_entry.c \
-			get_value.c \
-			hash_string.c
+SRC_NAME =
 
 OBJ_PATH = ./obj/
 
 INC_PATH = ./incl/
 
-NAME = test_graph
+NAME = lemin
 
 CC = clang
 CFLAGS = -Wall -Wextra -Werror -g
