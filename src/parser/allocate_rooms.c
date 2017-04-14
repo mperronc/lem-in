@@ -18,6 +18,6 @@ t_room		**allocate_rooms(char **split_map)
 		map_i += 1;
 	}
 
-	rooms = (t_room **)malloc(sizeof(t_room *) * n_rooms);
+	rooms = (t_room **)malloc(sizeof(t_room *) * n_rooms + 1);
 	return (rooms);
 }

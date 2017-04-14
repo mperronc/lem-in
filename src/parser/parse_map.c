@@ -21,13 +21,10 @@ t_hex	*parse_map(char *map)
 
 	int i = 0;
 
-	while (hex->rooms[i])
+	while (hex->rooms[i] != NULL)
 	{
-		puts(hex->rooms[i]->name);
+		printf("Room number %d :\nName : %s\nCoords : %d %d\nType : %d\n\n", hex->rooms[i]->id, hex->rooms[i]->name, hex->rooms[i]->x, hex->rooms[i]->y, hex->rooms[i]->type);
 		i++;
 	}
-
-	// print_rooms(hex);
-
 	return (hex);
 }

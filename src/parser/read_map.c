@@ -1,17 +1,21 @@
 /* 42 Header */
 
 #include "lem-in.h"
+#include <string.h>
 
 char *read_map(void)
 {
 	char *line;
 	char *map;
 
-	map = (char *) malloc(sizeof(char));
+	map = ft_strnew(64000);
 	while (get_next_line(0, &line))
 	{
-		map = ft_strjoin(map, line);
-		map = ft_strjoin(map, "\n");
+		strcat(map, line);
+		strcat(map, "\n");
+		free(line);
 	}
+	printf("%s\n", map);
+	free(map);
 	return (map);
 }
