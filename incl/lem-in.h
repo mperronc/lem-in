@@ -7,6 +7,7 @@
 #include "../libft/incl/ft_printf.h"
 #include "parser.h"
 #include "hex.h"
+#include "solver.h"
 #include <stdio.h>
 
 #endif

@@ -39,6 +39,9 @@ static t_room *make_room(char *line, int n, int type)
 		room->x = ft_atoi(sline[1]);
 		room->y = ft_atoi(sline[2]);
 		room->adjs = init_adjs();
+		room->ant = 0;
+		room->visited = 0;
+		room->weight = -1;
 	}
 	else {
 		ft_putstr("ERROR\n");

@@ -15,6 +15,9 @@ typedef struct	s_room {
 	int 		x;
 	int  		y;
 	int			type;
+	int			weight;
+	int			ant;
+	int			visited;
 	struct s_room **adjs;
 }				t_room;
 
