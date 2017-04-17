@@ -15,7 +15,6 @@ char *read_map(void)
 		strcat(map, "\n");
 		free(line);
 	}
-	printf("%s\n", map);
 	free(map);
 	return (map);
 }

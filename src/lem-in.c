@@ -9,4 +9,6 @@ int	main(void)
 
 	map = read_map();
 	hex = parse_map(map);
+
+	sleep(5000);
 }

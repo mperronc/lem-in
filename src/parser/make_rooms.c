@@ -4,9 +4,25 @@
 
 static int check_line(char **sline)
 {
+	if (sline) {}
 	// TO DO
 	// if len(sline == 3 and sline[1],[2] is only numbers)
 	return (1);
+}
+
+static t_room **init_adjs()
+{
+	int i;
+	t_room **list;
+
+	list = (t_room **)malloc(sizeof(t_room *) * MAX_ADJS);
+	i = 0;
+	while (i < MAX_ADJS)
+	{
+		list[i] = NULL;
+		i++;
+	}
+	return (list);
 }
 
 static t_room *make_room(char *line, int n, int type)
@@ -22,6 +38,7 @@ static t_room *make_room(char *line, int n, int type)
 		room->name = ft_strdup(sline[0]);
 		room->x = ft_atoi(sline[1]);
 		room->y = ft_atoi(sline[2]);
+		room->adjs = init_adjs();
 	}
 	else {
 		ft_putstr("ERROR\n");
@@ -46,11 +63,11 @@ t_room	**make_rooms(char **split_map)
 		if (split_map[map_i][0] != '#' && ft_strchr(split_map[map_i], ' '))
 		{
 			if (ft_strcmp(split_map[map_i - 1], "##start") == 0)
-				type = 1;
+				type = START;
 			else if (ft_strcmp(split_map[map_i - 1], "##end") == 0)
-				type = 2;
+				type = END;
 			else
-				type = 0;
+				type = NORMAL;
 			rooms[room_n] = make_room(split_map[map_i], room_n, type);
 			room_n++;
 		}

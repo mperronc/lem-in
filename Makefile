@@ -19,7 +19,9 @@ SRC_NAME =	lem-in.c \
 			parser/parse_map.c \
 			parser/get_ants.c \
 			parser/make_rooms.c \
-			parser/allocate_rooms.c
+			parser/allocate_rooms.c \
+			parser/make_tunnels.c \
+			parser/make_tunnel.c
 
 OBJ_PATH = ./obj/
 
