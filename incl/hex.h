@@ -7,7 +7,7 @@
 # define START 1
 # define END 2
 
-# define MAX_ADJS 100
+# define MAX_ADJS 1000
 
 typedef struct	s_room {
 	int			id;

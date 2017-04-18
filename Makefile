@@ -24,7 +24,8 @@ SRC_NAME =	lem-in.c \
 			parser/make_tunnel.c \
 			solver/select_next.c \
 			solver/weigh_edges.c \
-			solver/weigh_neighbors.c
+			solver/weigh_neighbors.c \
+			solver/find_path.c
 
 OBJ_PATH = ./obj/
 

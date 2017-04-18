@@ -8,5 +8,6 @@
 t_room	*select_next(t_room **rooms);
 void	weigh_edges(t_room **rooms);
 void	weigh_neighbors(t_room *cur);
+void 	find_path(t_room *start);
 
 #endif

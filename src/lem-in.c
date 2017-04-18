@@ -15,6 +15,21 @@ static void print_adj_rooms(t_room *room)
 	printf("\n\n");
 }
 
+static t_room *get_start(t_room **rooms)
+{
+	int	i;
+
+	i = 0;
+	while (rooms[i])
+	{
+		if (rooms[i]->type == START)
+			return (rooms[i]);
+		i++;
+	}
+	// Should not happen
+	return (NULL);
+}
+
 int	main(void)
 {
 	char	*map;
@@ -32,4 +47,5 @@ int	main(void)
 		print_adj_rooms(hex->rooms[i]);
 		i++;
 	}
+	find_path(get_start(hex->rooms));
 }
