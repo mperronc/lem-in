@@ -1,6 +1,6 @@
 /* 42 Header */
 
-#include "lem-in.h"
+#include "../../incl/lem-in.h"
 
 static int	only_numbers(char *s)
 {

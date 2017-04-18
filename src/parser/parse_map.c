@@ -1,6 +1,6 @@
 /* 42 Header */
 
-#include "../incl/lem-in.h"
+#include "../../incl/lem-in.h"
 
 t_hex	*parse_map(char *map)
 {

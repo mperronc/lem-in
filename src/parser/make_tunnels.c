@@ -1,6 +1,6 @@
 /* 42 HEADER Here */
 
-#include "../incl/lem-in.h"
+#include "../../incl/lem-in.h"
 
 void make_tunnels(t_hex *hex, char **split_map)
 {

@@ -1,6 +1,6 @@
 /* 42 HEADER HERE */
 
-#include "../incl/lem-in.h"
+#include "../../incl/lem-in.h"
 
 void	weigh_neighbors(t_room *cur)
 {

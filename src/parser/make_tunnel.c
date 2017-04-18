@@ -1,6 +1,6 @@
 /* 42 HEADER HERE */
 
-#include "../incl/lem-in.h"
+#include "../../incl/lem-in.h"
 
 static	t_room *lookup_room(t_room **rooms, char *name)
 {

@@ -1,6 +1,6 @@
 /* 42 Header */
 
-#include "lem-in.h"
+#include "../../incl/lem-in.h"
 
 t_room		**allocate_rooms(char **split_map)
 {

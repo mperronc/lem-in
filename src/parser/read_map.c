@@ -1,6 +1,6 @@
 /* 42 Header */
 
-#include "lem-in.h"
+#include "../../incl/lem-in.h"
 #include <string.h>
 
 char *read_map(void)
