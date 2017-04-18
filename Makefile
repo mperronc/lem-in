@@ -25,7 +25,10 @@ SRC_NAME =	lem-in.c \
 			solver/select_next.c \
 			solver/weigh_edges.c \
 			solver/weigh_neighbors.c \
-			solver/find_path.c
+			solver/find_path.c \
+			helpers/lookup_room.c \
+			helpers/print_adj_rooms.c \
+			helpers/print_rooms.c
 
 OBJ_PATH = ./obj/
 

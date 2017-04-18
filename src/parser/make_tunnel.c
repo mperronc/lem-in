@@ -2,20 +2,6 @@
 
 #include "../../incl/lem-in.h"
 
-static	t_room *lookup_room(t_room **rooms, char *name)
-{
-	int	crawl;
-
-	crawl = 0;
-	while (rooms[crawl])
-	{
-		if (ft_strcmp(rooms[crawl]->name, name) == 0)
-			return (rooms[crawl]);
-		crawl++;
-	}
-	return (NULL);
-}
-
 static void add_room(t_room **list, t_room *room)
 {
 	int i;

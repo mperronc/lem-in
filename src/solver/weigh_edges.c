@@ -2,21 +2,6 @@
 
 #include "../../incl/lem-in.h"
 
-static t_room *lookup_end(t_room **rooms)
-{
-	int	i;
-
-	i = 0;
-	while (rooms[i])
-	{
-		if (rooms[i]->type == END)
-			return (rooms[i]);
-		i++;
-	}
-	// Should not happen
-	return (NULL);
-}
-
 void	weigh_edges(t_room **rooms)
 {
 	t_room *cur;

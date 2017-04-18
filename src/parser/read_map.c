@@ -1,18 +1,18 @@
 /* 42 Header */
 
 #include "../../incl/lem-in.h"
-#include <string.h>
 
 char *read_map(void)
 {
 	char *line;
 	char *map;
 
+	// SHITS INSCECURE YO
 	map = ft_strnew(64000);
 	while (get_next_line(0, &line))
 	{
-		strcat(map, line);
-		strcat(map, "\n");
+		ft_strcat(map, line);
+		ft_strcat(map, "\n");
 		free(line);
 	}
 	free(map);

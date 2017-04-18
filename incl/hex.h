@@ -7,8 +7,6 @@
 # define START 1
 # define END 2
 
-# define MAX_ADJS 1000
-
 typedef struct	s_room {
 	int			id;
 	char		*name;
@@ -22,6 +20,7 @@ typedef struct	s_room {
 
 typedef struct	s_hex {
 	int			ants;
+	int			n_rooms;
 	t_room		**rooms;
 }				t_hex;
 

@@ -2,22 +2,14 @@
 
 #include "../../incl/lem-in.h"
 
-static int check_line(char **sline)
-{
-	if (sline) {}
-	// TO DO
-	// if len(sline == 3 and sline[1],[2] is only numbers)
-	return (1);
-}
-
-static t_room **init_adjs()
+static t_room **init_adjs(t_hex *hex)
 {
 	int i;
 	t_room **list;
 
-	list = (t_room **)malloc(sizeof(t_room *) * MAX_ADJS);
+	list = (t_room **)malloc(sizeof(t_room *) * hex->n_rooms);
 	i = 0;
-	while (i < MAX_ADJS)
+	while (i < hex->n_rooms)
 	{
 		list[i] = NULL;
 		i++;
@@ -25,39 +17,33 @@ static t_room **init_adjs()
 	return (list);
 }
 
-static t_room *make_room(char *line, int n, int type)
+static t_room *make_room(char *line, int n, int type, t_hex *hex)
 {
 	t_room	*room;
 	char	**sline;
 
 	room = (t_room *)malloc(sizeof(t_room));
 	sline = ft_strsplit(line, ' ');
-	if (check_line(sline)) {
-		room->id = n;
-		room->type = type;
-		room->name = ft_strdup(sline[0]);
-		room->x = ft_atoi(sline[1]);
-		room->y = ft_atoi(sline[2]);
-		room->adjs = init_adjs();
-		room->visited = 0;
-		room->weight = -1;
-	}
-	else {
-		ft_putstr("ERROR\n");
-		exit(EXIT_FAILURE);
-	}
+	room->id = n;
+	room->type = type;
+	room->name = ft_strdup(sline[0]);
+	room->x = ft_atoi(sline[1]);
+	room->y = ft_atoi(sline[2]);
+	room->adjs = init_adjs(hex);
+	room->visited = 0;
+	room->weight = -1;
 	free(sline);
 	return (room);
 }
 
-t_room	**make_rooms(char **split_map)
+t_room	**make_rooms(char **split_map, t_hex *hex)
 {
 	t_room		**rooms;
 	int			map_i;
 	int			room_n;
 	int			type;
 
-	rooms = allocate_rooms(split_map);
+	rooms = allocate_rooms(split_map, hex);
 	room_n = 0;
 	map_i = 1;
 	while (split_map[map_i])
@@ -70,7 +56,7 @@ t_room	**make_rooms(char **split_map)
 				type = END;
 			else
 				type = NORMAL;
-			rooms[room_n] = make_room(split_map[map_i], room_n, type);
+			rooms[room_n] = make_room(split_map[map_i], room_n, type, hex);
 			room_n++;
 		}
 		map_i += 1;

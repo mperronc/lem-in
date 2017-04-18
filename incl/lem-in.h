@@ -8,6 +8,6 @@
 #include "parser.h"
 #include "hex.h"
 #include "solver.h"
-#include <stdio.h>
+#include "helpers.h"
 
 #endif

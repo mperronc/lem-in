@@ -2,7 +2,7 @@
 
 #include "../../incl/lem-in.h"
 
-t_room		**allocate_rooms(char **split_map)
+t_room		**allocate_rooms(char **split_map, t_hex *hex)
 {
 	int		n_rooms;
 	int		map_i;
@@ -19,5 +19,6 @@ t_room		**allocate_rooms(char **split_map)
 	}
 
 	rooms = (t_room **)malloc(sizeof(t_room *) * n_rooms + 1);
+	hex->n_rooms = n_rooms;
 	return (rooms);
 }
