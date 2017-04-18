@@ -49,5 +49,4 @@ int	main(void)
 	}
 
 	find_path(get_start(hex->rooms));
-	find_path(get_start(hex->rooms));
 }
