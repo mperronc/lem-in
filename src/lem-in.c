@@ -47,5 +47,7 @@ int	main(void)
 		print_adj_rooms(hex->rooms[i]);
 		i++;
 	}
+
+	find_path(get_start(hex->rooms));
 	find_path(get_start(hex->rooms));
 }
