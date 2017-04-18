@@ -27,6 +27,6 @@ void	weigh_edges(t_room **rooms)
 	{
 		weigh_neighbors(cur);
 		cur->visited = 1;
-		cur = select_next(cur);
+		cur = select_next(rooms);
 	}
 }

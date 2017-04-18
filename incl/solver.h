@@ -5,7 +5,7 @@
 
 #include "hex.h"
 
-t_room	*select_next(t_room *cur);
+t_room	*select_next(t_room **rooms);
 void	weigh_edges(t_room **rooms);
 void	weigh_neighbors(t_room *cur);
 

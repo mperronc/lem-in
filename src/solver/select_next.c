@@ -2,17 +2,19 @@
 
 #include "../../incl/lem-in.h"
 
-t_room	*select_next(t_room *cur)
+t_room	*select_next(t_room **rooms)
 {
 	int		i;
 	t_room	*next;
 
 	i = 0;
 	next = NULL;
-	while (cur->adjs[i])
+	while (rooms[i])
 	{
-		if (!cur->adjs[i]->visited && (!next || next->weight > cur->adjs[i]->weight))
-			next = cur->adjs[i];
+		if (!next && rooms[i]->weight != -1 && !rooms[i]->visited)
+			next = rooms[i];
+		else if (next && rooms[i]->weight != -1 && next->weight > rooms[i]->weight && !rooms[i]->visited)
+			next = rooms[i];
 		i++;
 	}
 	return (next);
