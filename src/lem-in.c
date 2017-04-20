@@ -6,9 +6,11 @@ int	main(void)
 {
 	char	*map;
 	t_hex	*hex;
+	t_room ***paths;
 
 	map = read_map();
 	hex = parse_map(map);
 	weigh_edges(hex->rooms);
-	find_path(lookup_start(hex->rooms));
+	paths = find_paths(hex);
+	print_paths(paths);
 }

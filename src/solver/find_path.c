@@ -2,31 +2,57 @@
 
 #include "../../incl/lem-in.h"
 
-static t_room *pick_next(t_room *cur)
+static t_room *pick_min(t_room *cur)
 {
-	int i;
+	int		i;
+	t_room	*min;
 
+	min = NULL;
 	i = 0;
 	while (cur->adjs[i])
 	{
-		if (cur->adjs[i]->weight < cur->weight)
-			return (cur->adjs[i]);
+		if (!min || cur->adjs[i]->weight < min->weight)
+			min = cur->adjs[i];
 		i++;
 	}
-	return NULL;
+	return (min);
 }
 
-void find_path(t_room *start)
+static t_room *pick_next(t_room *cur)
+{
+	// From END only choose not used
+	// Then choose min not used
+	// if nothing choose min used, flag on used path set to 1
+	// follow used until start
+	// repeat until all rooms directly adjacent to end are used
+	t_room	*next;
+
+	next = pick_min(cur);
+	return (next);
+}
+
+t_room	**find_path(t_room *start, t_hex *hex)
 {
 	t_room	*crawl;
+	t_room	**path;
+	int		i;
 
+	path = init_rooms(hex);
 	crawl = start;
-	ft_printf("%s -> ", crawl->name);
-	while (crawl->type != END)
+	path[0] = crawl;
+	i = 1;
+	while (crawl && crawl->type != END)
 	{
+		print_room(crawl);
 		crawl = pick_next(crawl);
-		if (crawl)
-			ft_printf("%s -> ", crawl->name);
+		if (crawl != NULL)
+		{
+			path[i] = crawl;
+			i++;
+		}
 	}
-	ft_printf("END\n");
+	if (crawl && crawl->type == END)
+		return (path);
+	else
+		return (NULL);
 }

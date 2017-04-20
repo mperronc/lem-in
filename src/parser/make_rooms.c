@@ -2,21 +2,6 @@
 
 #include "../../incl/lem-in.h"
 
-static t_room **init_adjs(t_hex *hex)
-{
-	int i;
-	t_room **list;
-
-	list = (t_room **)malloc(sizeof(t_room *) * hex->n_rooms);
-	i = 0;
-	while (i < hex->n_rooms)
-	{
-		list[i] = NULL;
-		i++;
-	}
-	return (list);
-}
-
 static t_room *make_room(char *line, int n, int type, t_hex *hex)
 {
 	t_room	*room;
@@ -29,9 +14,10 @@ static t_room *make_room(char *line, int n, int type, t_hex *hex)
 	room->name = ft_strdup(sline[0]);
 	room->x = ft_atoi(sline[1]);
 	room->y = ft_atoi(sline[2]);
-	room->adjs = init_adjs(hex);
+	room->adjs = init_rooms(hex);
 	room->visited = 0;
 	room->weight = -1;
+	room->used = 0;
 	free(sline);
 	return (room);
 }
