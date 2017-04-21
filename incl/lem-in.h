@@ -9,5 +9,6 @@
 #include "hex.h"
 #include "solver.h"
 #include "helpers.h"
+#include "ants.h"
 
 #endif
