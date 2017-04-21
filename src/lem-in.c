@@ -11,6 +11,7 @@ int	main(void)
 	map = read_map();
 	hex = parse_map(map);
 	weigh_edges(hex->rooms);
+	ft_printf("Looking for Paths...\n");
 	paths = find_paths(hex);
 	print_paths(paths);
 }

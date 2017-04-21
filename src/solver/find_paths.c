@@ -34,11 +34,14 @@ t_room ***find_paths(t_hex *hex)
 	int		i;
 
 	max_paths = get_max_paths(hex);
+	ft_printf("There should be %d paths\n", max_paths);
 	paths = init_paths(max_paths);
 	i = 0;
 	while (i < max_paths)
 	{
-		paths[i] = find_path(lookup_start(hex->rooms), hex);
+		ft_printf("Looking for path %d\n", i + 1);
+		while (!paths[i])
+			paths[i] = find_path(lookup_end(hex->rooms), hex);
 		i++;
 	}
 	return (paths);

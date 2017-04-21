@@ -6,7 +6,7 @@ void	weigh_edges(t_room **rooms)
 {
 	t_room *cur;
 
-	cur = lookup_end(rooms);
+	cur = lookup_start(rooms);
 	cur->weight = 0;
 	while (cur != NULL)
 	{

@@ -2,9 +2,9 @@
 
 void 	print_room(t_room *room)
 {
-	ft_printf("Name : %s\nType : %d\nWeight : %d\n", room->name, room->type, room->weight);
-	ft_printf("Connected to :\n");
-	print_adj_rooms(room);
+	ft_printf("Name : %s Weight : %d\n", room->name, room->weight);
+	// ft_printf("Connected to :\n");
+	//print_adj_rooms(room);
 }
 
 void	print_rooms(t_room **rooms)
