@@ -16,11 +16,13 @@ typedef struct		s_room {
 	int				weight;
 	int				visited;
 	int				used;
+	int				ant;
 	struct s_room 	**adjs;
 }					t_room;
 
 typedef struct		s_hex {
 	int				ants;
+	int				n_paths;
 	int				n_rooms;
 	t_room			**rooms;
 }					t_hex;

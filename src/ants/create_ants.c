@@ -10,9 +10,11 @@ t_ant	**create_ants(t_hex *hex) {
 	i = 0;
 	while (i < hex->ants)
 	{
-		ants[i]->pos = NULL;
+		ants[i] = (t_ant *)malloc(sizeof(t_ant *));
+		ants[i]->pos = lookup_start(hex->rooms);
 		ants[i]->ppos = NULL;
 		i++;
 	}
+	ants[i] = NULL;
 	return (ants);
 }

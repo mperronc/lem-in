@@ -18,6 +18,7 @@ static t_room *make_room(char *line, int n, int type, t_hex *hex)
 	room->visited = 0;
 	room->weight = -1;
 	room->used = 0;
+	room->ant = 0;
 	free(sline);
 	return (room);
 }

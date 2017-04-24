@@ -27,11 +27,15 @@ SRC_NAME =	lem-in.c \
 			solver/weigh_neighbors.c \
 			solver/find_path.c \
 			solver/find_paths.c \
+			solver/filter_paths.c \
 			helpers/lookup_room.c \
 			helpers/print_adj_rooms.c \
 			helpers/print_rooms.c \
 			helpers/init_rooms.c \
-			helpers/print_paths.c
+			helpers/print_paths.c \
+			ants/create_ants.c \
+			ants/print_ants.c \
+			ants/move_ant.c
 
 OBJ_PATH = ./obj/
 

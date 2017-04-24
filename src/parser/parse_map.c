@@ -7,6 +7,7 @@ static void	init_hex(t_hex *hex)
 	hex->n_rooms = 0;
 	hex->ants = 0;
 	hex->rooms = NULL;
+	hex->n_paths = 0;
 }
 
 t_hex	*parse_map(char *map)
