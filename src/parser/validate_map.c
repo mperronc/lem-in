@@ -18,7 +18,7 @@ static int room_format(char *line)
 	sp = ft_strsplit(line, ' ');
 	if (sp[2] && !sp[3])
 	{
-		if (sp[0][0] != 'L' && only_numbers(sp[1]) && only_numbers(sp[2]))
+		if (sp[0][0] != 'L' && !ft_strchr(sp[0], '-') && only_numbers(sp[1]) && only_numbers(sp[2]))
 			ok = 1;
 	}
 	free_tab(sp);

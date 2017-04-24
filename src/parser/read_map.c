@@ -21,15 +21,19 @@ char *read_map(void)
 	char *map;
 
 	get_next_line(0, &line);
-	map = ft_strnew(ft_strlen(line) + 1);
-	ft_strcat(map, line);
-	ft_strcat(map, "\n");
-	free(line);
-	while (get_next_line(0, &line))
+	if (line)
 	{
-		map = ft_strjoinfree(map, line);
+		map = ft_strnew(ft_strlen(line) + 1);
+		ft_strcat(map, line);
+		ft_strcat(map, "\n");
+		free(line);
+		while (get_next_line(0, &line))
+		{
+			map = ft_strjoinfree(map, line);
+		}
+		ft_printf("%s\n", map);
+		return (map);
 	}
-	ft_printf("%s\n", map);
-	free(map);
-	return (map);
+	ft_putstr("ERROR\n");
+	exit(EXIT_FAILURE);
 }
