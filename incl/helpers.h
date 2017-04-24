@@ -13,5 +13,6 @@ t_room **init_rooms(t_hex *hex);
 void	print_paths(t_room ***paths);
 void	free_tab(char **tab);
 int		only_numbers(char *s);
+void	print_map(char **tab);
 
 #endif

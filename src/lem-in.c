@@ -13,18 +13,21 @@ int	main(void)
 	map = read_map();
 	if (map) {
 		map = validate_map(map);
-		hex = parse_map(map);
+		if (map && map[0])
+			hex = parse_map(map);
 	}
 	if (hex) {
 		weigh_edges(hex->rooms);
 		paths = find_paths(hex);
-		hex->n_paths = filter_paths(paths, hex->ants);
-		ants = create_ants(hex);
-		simulate(ants, paths, hex->n_paths);
-		free_tab(map);
+		if (paths && paths[0]) {
+			hex->n_paths = filter_paths(paths, hex->ants);
+			ants = create_ants(hex);
+			print_map(map);
+			simulate(ants, paths, hex->n_paths);
+			free_tab(map);
+			exit(EXIT_SUCCESS);
+		}
 	}
-	else {
-		ft_putstr("ERROR\n");
-	}
-	exit(EXIT_SUCCESS);
+	ft_putstr("ERROR\n");
+	exit(EXIT_FAILURE);
 }

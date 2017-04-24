@@ -29,7 +29,7 @@ t_room	**make_rooms(char **split_map, t_hex *hex)
 	int			map_i;
 	int			room_n;
 	int			type;
-
+	
 	rooms = allocate_rooms(split_map, hex);
 	if (rooms) {
 		room_n = 0;

@@ -25,7 +25,6 @@ char **read_map(void)
 	get_next_line(0, &line);
 	if (line)
 	{
-		ft_putstr(line);
 		map = ft_strnew(ft_strlen(line) + 1);
 		ft_strcat(map, line);
 		ft_strcat(map, "\n");
@@ -34,7 +33,6 @@ char **read_map(void)
 		{
 			map = ft_strjoinfree(map, line);
 		}
-		ft_printf("%s\n", map);
 		smap = ft_strsplit(map, '\n');
 		free(map);
 		return (smap);
