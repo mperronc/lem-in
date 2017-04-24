@@ -4,14 +4,17 @@
 
 int	main(void)
 {
-	char	*map;
+	char	**map;
 	t_hex	*hex;
 	t_room ***paths;
 	t_ant	**ants;
 
-	map = read_map();
-	ft_printf("%s\n", map);
+	map = ft_strsplit(read_map(), '\n');
+
+	// map = validate_map(map);
+
 	hex = parse_map(map);
+
 	weigh_edges(hex->rooms);
 	paths = find_paths(hex);
 	hex->n_paths = filter_paths(paths, hex->ants);
