@@ -5,7 +5,7 @@
 
 #include "hex.h"
 
-char	*read_map(void);
+char	**read_map(void);
 t_hex   *parse_map(char **split_map);
 t_room  **make_rooms(char **split_map, t_hex *hex);
 t_room	**allocate_rooms(char **split_map, t_hex *hex);

@@ -9,16 +9,22 @@ int	main(void)
 	t_room ***paths;
 	t_ant	**ants;
 
-	map = ft_strsplit(read_map(), '\n');
-
-	map = validate_map(map);
-
-	hex = parse_map(map);
-
-	weigh_edges(hex->rooms);
-	paths = find_paths(hex);
-	hex->n_paths = filter_paths(paths, hex->ants);
-	ants = create_ants(hex);
-	simulate(ants, paths, hex->n_paths);
-	free_tab(map);
+	hex = NULL;
+	map = read_map();
+	if (map) {
+		map = validate_map(map);
+		hex = parse_map(map);
+	}
+	if (hex) {
+		weigh_edges(hex->rooms);
+		paths = find_paths(hex);
+		hex->n_paths = filter_paths(paths, hex->ants);
+		ants = create_ants(hex);
+		simulate(ants, paths, hex->n_paths);
+		free_tab(map);
+	}
+	else {
+		ft_putstr("ERROR\n");
+	}
+	exit(EXIT_SUCCESS);
 }

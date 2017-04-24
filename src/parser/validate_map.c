@@ -73,7 +73,6 @@ char	**validate_map(char **map)
 	while (map[i] && line_is_valid(map[i], &stage))
 	{
 		val_map[i] = ft_strdup(map[i]);
-		ft_printf("%s is valid\n", val_map[i]);
 		i++;
 	}
 	val_map[i] = NULL;

@@ -23,7 +23,10 @@ t_hex	*parse_map(char **split_map)
 	init_hex(hex);
 	hex->ants = ft_atoi(split_map[0]);
 	hex->rooms = make_rooms(split_map, hex);
-	if (hex->rooms && check_se(hex->rooms))
+	if (hex->rooms && check_se(hex->rooms)) {
 		make_tunnels(hex, split_map);
-	return (hex);
+		return (hex);
+	}
+	else
+		return (NULL);
 }

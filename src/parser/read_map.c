@@ -15,14 +15,17 @@ char	*ft_strjoinfree(char *s1, char *s2)
 	return (new);
 }
 
-char *read_map(void)
+char **read_map(void)
 {
 	char *line;
 	char *map;
+	char **smap;
 
+	line = NULL;
 	get_next_line(0, &line);
 	if (line)
 	{
+		ft_putstr(line);
 		map = ft_strnew(ft_strlen(line) + 1);
 		ft_strcat(map, line);
 		ft_strcat(map, "\n");
@@ -32,8 +35,9 @@ char *read_map(void)
 			map = ft_strjoinfree(map, line);
 		}
 		ft_printf("%s\n", map);
-		return (map);
+		smap = ft_strsplit(map, '\n');
+		free(map);
+		return (smap);
 	}
-	ft_putstr("ERROR\n");
-	exit(EXIT_FAILURE);
+	return (NULL);
 }

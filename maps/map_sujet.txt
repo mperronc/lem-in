@@ -15,16 +15,11 @@ salle0-salle6
 salle1-salle3
 salle4-salle3
 salle5-salle2
-
-
 salle3-salle5
 #other comment
 salle4-salle2
 salle2-salle1
 salle7-salle6
-
-
-
 salle7-salle2
 salle7-salle4
 salle6-salle5
