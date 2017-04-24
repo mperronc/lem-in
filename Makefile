@@ -17,11 +17,11 @@ SRC_PATH = ./src/
 SRC_NAME =	lem-in.c \
 			parser/read_map.c \
 			parser/parse_map.c \
-			parser/get_ants.c \
 			parser/make_rooms.c \
 			parser/allocate_rooms.c \
 			parser/make_tunnels.c \
 			parser/make_tunnel.c \
+			parser/validate_map.c \
 			solver/select_next.c \
 			solver/weigh_edges.c \
 			solver/weigh_neighbors.c \
@@ -32,7 +32,9 @@ SRC_NAME =	lem-in.c \
 			helpers/print_adj_rooms.c \
 			helpers/print_rooms.c \
 			helpers/init_rooms.c \
+			helpers/free_tab.c \
 			helpers/print_paths.c \
+			helpers/only_numbers.c \
 			ants/create_ants.c \
 			ants/print_ants.c \
 			ants/move_ant.c

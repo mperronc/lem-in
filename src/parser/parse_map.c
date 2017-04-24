@@ -16,7 +16,7 @@ t_hex	*parse_map(char **split_map)
 
 	hex = (t_hex *)malloc(sizeof(t_hex));
 	init_hex(hex);
-	hex->ants = get_ants(split_map[0]);
+	hex->ants = ft_atoi(split_map[0]);
 	hex->rooms = make_rooms(split_map, hex);
 	make_tunnels(hex, split_map);
 

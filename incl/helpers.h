@@ -11,5 +11,7 @@ t_room *lookup_end(t_room **rooms);
 t_room *lookup_room(t_room **rooms, char *name);
 t_room **init_rooms(t_hex *hex);
 void	print_paths(t_room ***paths);
+void	free_tab(char **tab);
+int		only_numbers(char *s);
 
 #endif
