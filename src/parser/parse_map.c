@@ -10,6 +10,11 @@ static void	init_hex(t_hex *hex)
 	hex->n_paths = 0;
 }
 
+static int check_se(t_room **rooms)
+{
+	return (lookup_end(rooms) && lookup_start(rooms));
+}
+
 t_hex	*parse_map(char **split_map)
 {
 	t_hex   *hex;
@@ -18,7 +23,7 @@ t_hex	*parse_map(char **split_map)
 	init_hex(hex);
 	hex->ants = ft_atoi(split_map[0]);
 	hex->rooms = make_rooms(split_map, hex);
-	make_tunnels(hex, split_map);
-
+	if (hex->rooms && check_se(hex->rooms))
+		make_tunnels(hex, split_map);
 	return (hex);
 }

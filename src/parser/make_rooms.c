@@ -31,23 +31,26 @@ t_room	**make_rooms(char **split_map, t_hex *hex)
 	int			type;
 
 	rooms = allocate_rooms(split_map, hex);
-	room_n = 0;
-	map_i = 1;
-	while (split_map[map_i])
-	{
-		if (split_map[map_i][0] != '#' && ft_strchr(split_map[map_i], ' '))
+	if (rooms) {
+		room_n = 0;
+		map_i = 1;
+		while (split_map[map_i])
 		{
-			if (ft_strcmp(split_map[map_i - 1], "##start") == 0)
-				type = START;
-			else if (ft_strcmp(split_map[map_i - 1], "##end") == 0)
-				type = END;
-			else
-				type = NORMAL;
-			rooms[room_n] = make_room(split_map[map_i], room_n, type, hex);
-			room_n++;
+			if (split_map[map_i][0] != '#' && ft_strchr(split_map[map_i], ' '))
+			{
+				if (ft_strcmp(split_map[map_i - 1], "##start") == 0)
+					type = START;
+				else if (ft_strcmp(split_map[map_i - 1], "##end") == 0)
+					type = END;
+				else
+					type = NORMAL;
+				rooms[room_n] = make_room(split_map[map_i], room_n, type, hex);
+				room_n++;
+			}
+			map_i += 1;
+			rooms[room_n] = NULL;
 		}
-		map_i += 1;
-		rooms[room_n] = NULL;
+		return rooms;
 	}
-	return rooms;
+	return (NULL);
 }

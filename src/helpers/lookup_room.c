@@ -11,7 +11,6 @@ t_room *lookup_start(t_room **rooms)
 			return (rooms[i]);
 		i++;
 	}
-	// Should not happen
 	return (NULL);
 }
 
@@ -26,7 +25,6 @@ t_room *lookup_end(t_room **rooms)
 			return (rooms[i]);
 		i++;
 	}
-	// Should not happen
 	return (NULL);
 }
 

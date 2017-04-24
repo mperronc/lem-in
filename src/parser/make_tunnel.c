@@ -11,6 +11,10 @@ static void add_room(t_room **list, t_room *room)
 		i++;
 	list[i] = room;
 }
+static int	not_dup(t_room *r1, t_room *r2)
+{
+	return (!lookup_room(r1->adjs, r2->name) && !lookup_room(r2->adjs, r2->name));
+}
 
 static void connect(t_room *room1, t_room *room2)
 {
@@ -27,5 +31,6 @@ void	make_tunnel(t_hex *hex, char *line)
 	sline = ft_strsplit(line, '-');
 	room1 = lookup_room(hex->rooms, sline[0]);
 	room2 = lookup_room(hex->rooms, sline[1]);
-	connect(room1, room2);
+	if (room1 && room2 && not_dup(room1, room2))
+		connect(room1, room2);
 }

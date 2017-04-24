@@ -18,7 +18,11 @@ t_room		**allocate_rooms(char **split_map, t_hex *hex)
 		map_i += 1;
 	}
 
-	rooms = (t_room **)malloc(sizeof(t_room *) * n_rooms + 1);
-	hex->n_rooms = n_rooms;
-	return (rooms);
+	if (n_rooms >= 2) {
+		rooms = (t_room **)malloc(sizeof(t_room *) * n_rooms + 1);
+		hex->n_rooms = n_rooms;
+		return (rooms);
+	}
+	else
+		return (NULL);
 }
