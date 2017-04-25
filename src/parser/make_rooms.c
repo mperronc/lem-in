@@ -6,7 +6,7 @@
 /*   By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 11:17:10 by mperronc          #+#    #+#             */
-/*   Updated: 2017/04/25 12:43:17 by mperronc         ###   ########.fr       */
+/*   Updated: 2017/04/25 14:55:08 by mperronc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,19 @@ static t_room	*make_room(char *line, int type, t_hex *hex)
 	return (room);
 }
 
+static int		gettype(char **split_map, int map_i)
+{
+	int type;
+
+	if (ft_strcmp(split_map[map_i - 1], "##start") == 0)
+		type = START;
+	else if (ft_strcmp(split_map[map_i - 1], "##end") == 0)
+		type = END;
+	else
+		type = NORMAL;
+	return (type);
+}
+
 t_room			**make_rooms(char **split_map, t_hex *hex)
 {
 	t_room		**rooms;
@@ -48,14 +61,8 @@ t_room			**make_rooms(char **split_map, t_hex *hex)
 		{
 			if (split_map[map_i][0] != '#' && ft_strchr(split_map[map_i], ' '))
 			{
-				if (ft_strcmp(split_map[map_i - 1], "##start") == 0)
-					type = START;
-				else if (ft_strcmp(split_map[map_i - 1], "##end") == 0)
-					type = END;
-				else
-					type = NORMAL;
-				rooms[room_n] = make_room(split_map[map_i], type, hex);
-				room_n++;
+				type = gettype(split_map, map_i);
+				rooms[room_n++] = make_room(split_map[map_i], type, hex);
 			}
 			map_i += 1;
 			rooms[room_n] = NULL;

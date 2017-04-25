@@ -6,7 +6,7 @@
 /*   By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 11:47:12 by mperronc          #+#    #+#             */
-/*   Updated: 2017/04/25 13:00:00 by mperronc         ###   ########.fr       */
+/*   Updated: 2017/04/25 15:06:48 by mperronc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,20 @@ static void	free_rooms(t_room **rooms)
 	{
 		free(rooms[i]->name);
 		free(rooms[i]->adjs);
+		free(rooms[i]);
 		i++;
 	}
 	free(rooms);
 }
 
-static void free_hex(t_hex *hex)
+static void	free_hex(t_hex *hex)
 {
 	if (hex->rooms)
 		free_rooms(hex->rooms);
 	free(hex);
 }
 
-static void free_paths(t_room ***paths)
+static void	free_paths(t_room ***paths)
 {
 	int	i;
 
@@ -74,6 +75,7 @@ void		free_lemin(char **map, t_hex *hex, t_room ***paths, t_ant **ants)
 		free_paths(paths);
 	if (ants)
 		free_ants(ants);
+	sleep(1100);
 	if (yes)
 		exit(EXIT_SUCCESS);
 	else

@@ -6,13 +6,21 @@
 /*   By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 11:18:15 by mperronc          #+#    #+#             */
-/*   Updated: 2017/04/25 12:16:33 by mperronc         ###   ########.fr       */
+/*   Updated: 2017/04/25 14:54:31 by mperronc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/lemin.h"
 
-int	main(void)
+static void	solve(t_hex *hex, t_ant ***ants, char **map, t_room ***paths)
+{
+	hex->n_paths = filter_paths(paths, hex->ants);
+	*ants = create_ants(hex);
+	print_map(map);
+	simulate(*ants, paths, hex->n_paths);
+}
+
+int			main(void)
 {
 	char		**map;
 	t_hex		*hex;
@@ -35,12 +43,7 @@ int	main(void)
 		weigh_edges(hex->rooms);
 		paths = find_paths(hex);
 		if (paths && paths[0])
-		{
-			hex->n_paths = filter_paths(paths, hex->ants);
-			ants = create_ants(hex);
-			print_map(map);
-			simulate(ants, paths, hex->n_paths);
-		}
+			solve(hex, &ants, map, paths);
 	}
 	free_lemin(map, hex, paths, ants);
 }
