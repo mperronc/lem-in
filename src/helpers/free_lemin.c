@@ -6,7 +6,7 @@
 /*   By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 11:47:12 by mperronc          #+#    #+#             */
-/*   Updated: 2017/04/25 15:06:48 by mperronc         ###   ########.fr       */
+/*   Updated: 2017/04/25 15:30:32 by mperronc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ void		free_lemin(char **map, t_hex *hex, t_room ***paths, t_ant **ants)
 		free_paths(paths);
 	if (ants)
 		free_ants(ants);
-	sleep(1100);
 	if (yes)
 		exit(EXIT_SUCCESS);
 	else

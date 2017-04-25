@@ -6,13 +6,13 @@
 #    By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/02 12:07:00 by mperronc          #+#    #+#              #
-#    Updated: 2017/04/25 12:04:43 by mperronc         ###   ########.fr        #
+#    Updated: 2017/04/25 15:34:30 by mperronc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Thanks to fdaudre- for his tutorial #
 
-SRC_PATH = ./src/
+SRC_PATH = src/
 
 SRC_NAME =	lemin.c \
 			parser/read_map.c \
@@ -40,41 +40,40 @@ SRC_NAME =	lemin.c \
 			ants/print_ants.c \
 			ants/move_ant.c
 
-OBJ_PATH = ./obj/
+OBJ_PATH = obj/
 
-INC_PATH = ./incl/
+CPPFLAGS = -Iinclude
 
-NAME = lemin
+LDFLAGS = -Llibft
+LDLIBS = -lft
+
+NAME = lem-in
 
 CC = clang
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Werror -Wall -Wextra
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
-SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
-OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
-INC = $(addprefix -I, $(INC_PATH))
+SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
+OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
+
+.PHONY: all, clean, fclean, re
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	make -C ./libft
-	$(CC) -o $(NAME) $(CFLAGS) $(OBJ) -L ./libft -lft
+	cd libft && make
+	$(CC) $(LDFLAGS) $(LDLIBS) $^ -o $@
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
-	@mkdir $(OBJ_PATH) 2> /dev/null || echo "" > /dev/null
-	$(CC) $(CFLAGS) $(INC) -o $@ -c $<
-
-.PHONY: clean fclean re
+	@mkdir $(OBJ_PATH) 2> /dev/null || true
+	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 
 clean:
-	make -C ./libft clean
 	rm -fv $(OBJ)
-	@rmdir $(OBJ_PATH) 2> /dev/null || echo "" > /dev/null
+	@rmdir $(OBJ_PATH) 2> /dev/null || true
 
 fclean: clean
-	make -C ./libft fclean
 	rm -fv $(NAME)
 
-re:	fclean all
-	make -C ./libft re
+re: fclean all

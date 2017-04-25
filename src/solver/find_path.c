@@ -6,7 +6,7 @@
 /*   By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 11:17:48 by mperronc          #+#    #+#             */
-/*   Updated: 2017/04/25 11:33:16 by mperronc         ###   ########.fr       */
+/*   Updated: 2017/04/25 15:37:08 by mperronc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static t_room	*pick_next(t_room *cur, int *flag)
 	return (next);
 }
 
-t_room		**find_path(t_room *end, t_hex *hex)
+t_room			**find_path(t_room *end, t_hex *hex)
 {
 	t_room	*crawl;
 	t_room	**path;
