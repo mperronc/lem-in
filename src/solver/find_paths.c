@@ -6,7 +6,7 @@
 /*   By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 11:17:52 by mperronc          #+#    #+#             */
-/*   Updated: 2017/04/25 11:33:51 by mperronc         ###   ########.fr       */
+/*   Updated: 2017/04/25 12:59:52 by mperronc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static t_room	***init_paths(int n)
 	t_room	***paths;
 	int		i;
 
-	paths = (t_room ***)malloc(sizeof(t_room **) * n + 1);
+	paths = (t_room ***)malloc(sizeof(t_room **) * (n + 1));
 	i = 0;
 	while (i <= n)
 	{

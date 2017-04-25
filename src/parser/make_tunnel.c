@@ -6,7 +6,7 @@
 /*   By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 11:17:16 by mperronc          #+#    #+#             */
-/*   Updated: 2017/04/25 11:28:23 by mperronc         ###   ########.fr       */
+/*   Updated: 2017/04/25 12:28:27 by mperronc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,5 @@ void		make_tunnel(t_hex *hex, char *line)
 	room2 = lookup_room(hex->rooms, sline[1]);
 	if (room1 && room2 && not_dup(room1, room2))
 		connect(room1, room2);
+	free_tab(sline);
 }

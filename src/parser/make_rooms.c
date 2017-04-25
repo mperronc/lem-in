@@ -6,20 +6,19 @@
 /*   By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 11:17:10 by mperronc          #+#    #+#             */
-/*   Updated: 2017/04/25 11:29:32 by mperronc         ###   ########.fr       */
+/*   Updated: 2017/04/25 12:43:17 by mperronc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incl/lemin.h"
 
-static t_room	*make_room(char *line, int n, int type, t_hex *hex)
+static t_room	*make_room(char *line, int type, t_hex *hex)
 {
 	t_room	*room;
 	char	**sline;
 
 	room = (t_room *)malloc(sizeof(t_room));
 	sline = ft_strsplit(line, ' ');
-	room->id = n;
 	room->type = type;
 	room->name = ft_strdup(sline[0]);
 	room->x = ft_atoi(sline[1]);
@@ -29,7 +28,7 @@ static t_room	*make_room(char *line, int n, int type, t_hex *hex)
 	room->weight = -1;
 	room->used = 0;
 	room->ant = 0;
-	free(sline);
+	free_tab(sline);
 	return (room);
 }
 
@@ -55,7 +54,7 @@ t_room			**make_rooms(char **split_map, t_hex *hex)
 					type = END;
 				else
 					type = NORMAL;
-				rooms[room_n] = make_room(split_map[map_i], room_n, type, hex);
+				rooms[room_n] = make_room(split_map[map_i], type, hex);
 				room_n++;
 			}
 			map_i += 1;

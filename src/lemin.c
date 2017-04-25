@@ -6,7 +6,7 @@
 /*   By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 11:18:15 by mperronc          #+#    #+#             */
-/*   Updated: 2017/04/25 11:33:59 by mperronc         ###   ########.fr       */
+/*   Updated: 2017/04/25 12:16:33 by mperronc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ int	main(void)
 	t_room		***paths;
 	t_ant		**ants;
 
+	map = NULL;
 	hex = NULL;
+	paths = NULL;
+	ants = NULL;
 	map = read_map();
 	if (map)
 	{
@@ -37,10 +40,7 @@ int	main(void)
 			ants = create_ants(hex);
 			print_map(map);
 			simulate(ants, paths, hex->n_paths);
-			free_tab(map);
-			exit(EXIT_SUCCESS);
 		}
 	}
-	ft_putstr("ERROR\n");
-	exit(EXIT_FAILURE);
+	free_lemin(map, hex, paths, ants);
 }

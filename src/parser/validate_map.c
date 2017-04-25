@@ -6,7 +6,7 @@
 /*   By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 11:17:36 by mperronc          #+#    #+#             */
-/*   Updated: 2017/04/25 11:30:54 by mperronc         ###   ########.fr       */
+/*   Updated: 2017/04/25 12:56:08 by mperronc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ char		**validate_map(char **map)
 
 	i = 0;
 	stage = 0;
-	val_map = (char **)malloc(sizeof(char *) * map_len(map) + 1);
+	val_map = (char **)malloc(sizeof(char *) * (map_len(map) + 1));
 	while (map[i] && line_is_valid(map[i], &stage))
 	{
 		val_map[i] = ft_strdup(map[i]);

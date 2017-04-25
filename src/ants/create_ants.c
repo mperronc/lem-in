@@ -6,7 +6,7 @@
 /*   By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 11:16:08 by mperronc          #+#    #+#             */
-/*   Updated: 2017/04/25 11:23:52 by mperronc         ###   ########.fr       */
+/*   Updated: 2017/04/25 12:32:44 by mperronc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@ t_ant	**create_ants(t_hex *hex)
 	i = 0;
 	while (i < hex->ants)
 	{
-		ants[i] = (t_ant *)malloc(sizeof(t_ant *));
+		ants[i] = (t_ant *)malloc(sizeof(t_ant));
 		ants[i]->pos = lookup_start(hex->rooms);
-		ants[i]->ppos = NULL;
 		i++;
 	}
 	ants[i] = NULL;

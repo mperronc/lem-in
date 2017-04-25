@@ -6,7 +6,7 @@
 /*   By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 11:17:05 by mperronc          #+#    #+#             */
-/*   Updated: 2017/04/25 11:23:52 by mperronc         ###   ########.fr       */
+/*   Updated: 2017/04/25 12:55:26 by mperronc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_room		**allocate_rooms(char **split_map, t_hex *hex)
 	}
 	if (n_rooms >= 2)
 	{
-		rooms = (t_room **)malloc(sizeof(t_room *) * n_rooms + 1);
+		rooms = (t_room **)malloc(sizeof(t_room *) * (n_rooms + 1));
 		hex->n_rooms = n_rooms;
 		return (rooms);
 	}

@@ -6,7 +6,7 @@
 #    By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/02 12:07:00 by mperronc          #+#    #+#              #
-#    Updated: 2017/04/25 11:34:04 by mperronc         ###   ########.fr        #
+#    Updated: 2017/04/25 12:04:43 by mperronc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ SRC_NAME =	lemin.c \
 			helpers/free_tab.c \
 			helpers/print_paths.c \
 			helpers/only_numbers.c \
+			helpers/free_lemin.c \
 			ants/create_ants.c \
 			ants/print_ants.c \
 			ants/move_ant.c
