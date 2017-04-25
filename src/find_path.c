@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incl/lemin.h"
+#include "../incl/lemin.h"
 
 static t_room	*pick_min(t_room *cur, int status)
 {

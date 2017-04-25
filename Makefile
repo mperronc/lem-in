@@ -6,7 +6,7 @@
 #    By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/02 12:07:00 by mperronc          #+#    #+#              #
-#    Updated: 2017/04/25 15:34:30 by mperronc         ###   ########.fr        #
+#    Updated: 2017/04/25 15:45:15 by mperronc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,30 +15,30 @@
 SRC_PATH = src/
 
 SRC_NAME =	lemin.c \
-			parser/read_map.c \
-			parser/parse_map.c \
-			parser/make_rooms.c \
-			parser/allocate_rooms.c \
-			parser/make_tunnels.c \
-			parser/make_tunnel.c \
-			parser/validate_map.c \
-			solver/select_next.c \
-			solver/weigh_edges.c \
-			solver/weigh_neighbors.c \
-			solver/find_path.c \
-			solver/find_paths.c \
-			solver/filter_paths.c \
-			helpers/lookup_room.c \
-			helpers/print_adj_rooms.c \
-			helpers/print_rooms.c \
-			helpers/init_rooms.c \
-			helpers/free_tab.c \
-			helpers/print_paths.c \
-			helpers/only_numbers.c \
-			helpers/free_lemin.c \
-			ants/create_ants.c \
-			ants/print_ants.c \
-			ants/move_ant.c
+			read_map.c \
+			parse_map.c \
+			make_rooms.c \
+			allocate_rooms.c \
+			make_tunnels.c \
+			make_tunnel.c \
+			validate_map.c \
+			select_next.c \
+			weigh_edges.c \
+			weigh_neighbors.c \
+			find_path.c \
+			find_paths.c \
+			filter_paths.c \
+			lookup_room.c \
+			print_adj_rooms.c \
+			print_rooms.c \
+			init_rooms.c \
+			free_tab.c \
+			print_paths.c \
+			only_numbers.c \
+			free_lemin.c \
+			create_ants.c \
+			print_ants.c \
+			move_ant.c
 
 OBJ_PATH = obj/
 

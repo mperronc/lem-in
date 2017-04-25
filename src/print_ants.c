@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   select_next.c                                      :+:      :+:    :+:   */
+/*   print_ants.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/25 11:17:57 by mperronc          #+#    #+#             */
-/*   Updated: 2017/04/25 11:31:29 by mperronc         ###   ########.fr       */
+/*   Created: 2017/04/25 11:16:27 by mperronc          #+#    #+#             */
+/*   Updated: 2017/04/25 11:23:52 by mperronc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incl/lemin.h"
+#include "../incl/lemin.h"
 
-t_room	*select_next(t_room **rooms)
+void	print_ants(t_ant **ants)
 {
 	int		i;
-	t_room	*next;
 
 	i = 0;
-	next = NULL;
-	while (rooms[i])
+	while (ants[i])
 	{
-		if (!next && rooms[i]->weight != -1 && !rooms[i]->visited)
-			next = rooms[i];
-		else if (next && rooms[i]->weight != -1
-				&& next->weight > rooms[i]->weight && !rooms[i]->visited)
-			next = rooms[i];
+		ft_printf("Ant %d : %s\n", i + 1, ants[i]->pos->name);
 		i++;
 	}
-	return (next);
+	ft_printf("\n");
 }

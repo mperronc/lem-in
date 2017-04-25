@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incl/lemin.h"
+#include "../incl/lemin.h"
 
 char	*ft_strjoinfree(char *s1, char *s2)
 {

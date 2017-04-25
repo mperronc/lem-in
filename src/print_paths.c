@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_rooms.c                                      :+:      :+:    :+:   */
+/*   print_paths.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/25 11:16:58 by mperronc          #+#    #+#             */
+/*   Created: 2017/04/25 11:16:54 by mperronc          #+#    #+#             */
 /*   Updated: 2017/04/25 11:23:52 by mperronc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incl/lemin.h"
+#include "../incl/lemin.h"
 
-void	print_room(t_room *room)
+void	print_paths(t_room ***paths)
 {
-	ft_printf("Name : %s Weight : %d\n", room->name, room->weight);
-	ft_printf("Connected to :\n");
-	print_adj_rooms(room);
-}
-
-void	print_rooms(t_room **rooms)
-{
-	int i;
+	int	i;
 
 	i = 0;
-	while (rooms[i] != NULL)
+	while (paths[i])
 	{
-		print_room(rooms[i]);
+		ft_printf("====== PATH %d ======\n\n", i + 1);
+		print_rooms(paths[i]);
 		i++;
 	}
 }

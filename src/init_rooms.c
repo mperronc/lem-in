@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   only_numbers.c                                     :+:      :+:    :+:   */
+/*   init_rooms.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/25 11:16:45 by mperronc          #+#    #+#             */
+/*   Created: 2017/04/25 11:16:32 by mperronc          #+#    #+#             */
 /*   Updated: 2017/04/25 11:23:52 by mperronc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incl/lemin.h"
+#include "../incl/lemin.h"
 
-int	only_numbers(char *s)
+t_room	**init_rooms(t_hex *hex)
 {
-	int	i;
+	int		i;
+	t_room	**list;
 
+	list = (t_room **)malloc(sizeof(t_room *) * hex->n_rooms);
 	i = 0;
-	while (s[i])
+	while (i < hex->n_rooms)
 	{
-		if (!ft_isdigit(s[i]))
-			return (0);
+		list[i] = NULL;
 		i++;
 	}
-	return (1);
+	return (list);
 }

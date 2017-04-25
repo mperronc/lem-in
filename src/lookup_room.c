@@ -1,28 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_rooms.c                                       :+:      :+:    :+:   */
+/*   lookup_room.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/25 11:16:32 by mperronc          #+#    #+#             */
+/*   Created: 2017/04/25 11:16:36 by mperronc          #+#    #+#             */
 /*   Updated: 2017/04/25 11:23:52 by mperronc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incl/lemin.h"
+#include "../incl/lemin.h"
 
-t_room	**init_rooms(t_hex *hex)
+t_room	*lookup_start(t_room **rooms)
 {
-	int		i;
-	t_room	**list;
+	int	i;
 
-	list = (t_room **)malloc(sizeof(t_room *) * hex->n_rooms);
 	i = 0;
-	while (i < hex->n_rooms)
+	while (rooms[i])
 	{
-		list[i] = NULL;
+		if (rooms[i]->type == START)
+			return (rooms[i]);
 		i++;
 	}
-	return (list);
+	return (NULL);
+}
+
+t_room	*lookup_end(t_room **rooms)
+{
+	int	i;
+
+	i = 0;
+	while (rooms[i])
+	{
+		if (rooms[i]->type == END)
+			return (rooms[i]);
+		i++;
+	}
+	return (NULL);
+}
+
+t_room	*lookup_room(t_room **rooms, char *name)
+{
+	int	crawl;
+
+	crawl = 0;
+	while (rooms[crawl])
+	{
+		if (ft_strcmp(rooms[crawl]->name, name) == 0)
+			return (rooms[crawl]);
+		crawl++;
+	}
+	return (NULL);
 }

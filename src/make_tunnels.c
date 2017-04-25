@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   weigh_neighbors.c                                  :+:      :+:    :+:   */
+/*   make_tunnels.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/25 11:18:10 by mperronc          #+#    #+#             */
-/*   Updated: 2017/04/25 11:23:53 by mperronc         ###   ########.fr       */
+/*   Created: 2017/04/25 11:17:21 by mperronc          #+#    #+#             */
+/*   Updated: 2017/04/25 11:27:12 by mperronc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incl/lemin.h"
+#include "../incl/lemin.h"
 
-void	weigh_neighbors(t_room *cur)
+void	make_tunnels(t_hex *hex, char **split_map)
 {
-	int		i;
+	int	map_i;
 
-	i = 0;
-	while (cur->adjs[i])
+	map_i = 0;
+	while (split_map[map_i])
 	{
-		if (cur->adjs[i]->weight == -1 || cur->adjs[i]->weight > cur->weight)
-			cur->adjs[i]->weight = cur->weight + 1;
-		i++;
+		if (ft_strchr(split_map[map_i], '#') == 0
+			&& ft_strchr(split_map[map_i], '-') != 0)
+			make_tunnel(hex, split_map[map_i]);
+		map_i++;
 	}
 }

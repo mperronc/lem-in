@@ -1,26 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_adj_rooms.c                                  :+:      :+:    :+:   */
+/*   free_tab.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/25 11:16:49 by mperronc          #+#    #+#             */
+/*   Created: 2017/04/25 11:16:41 by mperronc          #+#    #+#             */
 /*   Updated: 2017/04/25 11:23:52 by mperronc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incl/lemin.h"
+#include "../incl/lemin.h"
 
-void	print_adj_rooms(t_room *room)
+void	free_tab(char **tab)
 {
 	int	i;
 
 	i = 0;
-	while (room->adjs[i])
+	while (tab[i])
 	{
-		ft_printf("%s ", room->adjs[i]->name);
+		free(tab[i]);
 		i++;
 	}
-	ft_printf("\n\n");
+	free(tab);
+}
+
+void	print_map(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		ft_printf("%s\n", tab[i]);
+		i++;
+	}
+	ft_printf("\n");
 }

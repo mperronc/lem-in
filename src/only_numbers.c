@@ -1,39 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   filter_paths.c                                     :+:      :+:    :+:   */
+/*   only_numbers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/25 11:17:42 by mperronc          #+#    #+#             */
-/*   Updated: 2017/04/25 11:31:19 by mperronc         ###   ########.fr       */
+/*   Created: 2017/04/25 11:16:45 by mperronc          #+#    #+#             */
+/*   Updated: 2017/04/25 11:23:52 by mperronc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incl/lemin.h"
+#include "../incl/lemin.h"
 
-static int	path_len(t_room **path)
+int	only_numbers(char *s)
 {
 	int	i;
 
 	i = 0;
-	while (path[i])
+	while (s[i])
 	{
+		if (!ft_isdigit(s[i]))
+			return (0);
 		i++;
 	}
-	return (i);
-}
-
-int			filter_paths(t_room ***paths, int n_ants)
-{
-	int		n_paths;
-
-	n_ants -= path_len(paths[0]);
-	n_paths = 1;
-	while (paths[n_paths] && n_ants > path_len(paths[n_paths]))
-	{
-		n_ants -= path_len(paths[n_paths]);
-		n_paths++;
-	}
-	return (n_paths);
+	return (1);
 }

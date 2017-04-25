@@ -1,55 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lookup_room.c                                      :+:      :+:    :+:   */
+/*   print_rooms.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/25 11:16:36 by mperronc          #+#    #+#             */
+/*   Created: 2017/04/25 11:16:58 by mperronc          #+#    #+#             */
 /*   Updated: 2017/04/25 11:23:52 by mperronc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incl/lemin.h"
+#include "../incl/lemin.h"
 
-t_room	*lookup_start(t_room **rooms)
+void	print_room(t_room *room)
 {
-	int	i;
-
-	i = 0;
-	while (rooms[i])
-	{
-		if (rooms[i]->type == START)
-			return (rooms[i]);
-		i++;
-	}
-	return (NULL);
+	ft_printf("Name : %s Weight : %d\n", room->name, room->weight);
+	ft_printf("Connected to :\n");
+	print_adj_rooms(room);
 }
 
-t_room	*lookup_end(t_room **rooms)
+void	print_rooms(t_room **rooms)
 {
-	int	i;
+	int i;
 
 	i = 0;
-	while (rooms[i])
+	while (rooms[i] != NULL)
 	{
-		if (rooms[i]->type == END)
-			return (rooms[i]);
+		print_room(rooms[i]);
 		i++;
 	}
-	return (NULL);
-}
-
-t_room	*lookup_room(t_room **rooms, char *name)
-{
-	int	crawl;
-
-	crawl = 0;
-	while (rooms[crawl])
-	{
-		if (ft_strcmp(rooms[crawl]->name, name) == 0)
-			return (rooms[crawl]);
-		crawl++;
-	}
-	return (NULL);
 }

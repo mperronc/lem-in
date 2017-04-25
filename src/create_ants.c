@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_paths.c                                      :+:      :+:    :+:   */
+/*   create_ants.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/25 11:16:54 by mperronc          #+#    #+#             */
-/*   Updated: 2017/04/25 11:23:52 by mperronc         ###   ########.fr       */
+/*   Created: 2017/04/25 11:16:08 by mperronc          #+#    #+#             */
+/*   Updated: 2017/04/25 12:32:44 by mperronc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incl/lemin.h"
+#include "../incl/lemin.h"
 
-void	print_paths(t_room ***paths)
+t_ant	**create_ants(t_hex *hex)
 {
-	int	i;
+	t_ant	**ants;
+	int		i;
 
+	ants = (t_ant **)malloc(sizeof(t_ant *) * (hex->ants + 1));
 	i = 0;
-	while (paths[i])
+	while (i < hex->ants)
 	{
-		ft_printf("====== PATH %d ======\n\n", i + 1);
-		print_rooms(paths[i]);
+		ants[i] = (t_ant *)malloc(sizeof(t_ant));
+		ants[i]->pos = lookup_start(hex->rooms);
 		i++;
 	}
+	ants[i] = NULL;
+	return (ants);
 }
