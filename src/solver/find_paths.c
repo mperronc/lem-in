@@ -1,6 +1,18 @@
-#include "../../incl/lem-in.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   find_paths.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/04/25 11:17:52 by mperronc          #+#    #+#             */
+/*   Updated: 2017/04/25 11:33:51 by mperronc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-static int	get_max_paths(t_hex *hex)
+#include "../../incl/lemin.h"
+
+static int		get_max_paths(t_hex *hex)
 {
 	int		max_paths;
 	t_room	*end;
@@ -9,12 +21,12 @@ static int	get_max_paths(t_hex *hex)
 	max_paths = 0;
 	while (end->adjs[max_paths])
 		max_paths++;
-	return max_paths;
+	return (max_paths);
 }
 
-static t_room ***init_paths(int n)
+static t_room	***init_paths(int n)
 {
-	t_room 	***paths;
+	t_room	***paths;
 	int		i;
 
 	paths = (t_room ***)malloc(sizeof(t_room **) * n + 1);
@@ -24,10 +36,10 @@ static t_room ***init_paths(int n)
 		paths[i] = NULL;
 		i++;
 	}
-	return paths;
+	return (paths);
 }
 
-t_room ***find_paths(t_hex *hex)
+t_room			***find_paths(t_hex *hex)
 {
 	int		max_paths;
 	t_room	***paths;

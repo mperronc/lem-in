@@ -1,4 +1,16 @@
-#include "../../incl/lem-in.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   move_ant.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/04/25 11:16:20 by mperronc          #+#    #+#             */
+/*   Updated: 2017/04/25 11:26:21 by mperronc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../../incl/lemin.h"
 
 static int	get_pos(t_room *pos, t_room **path)
 {
@@ -44,18 +56,19 @@ static int	move_ants(t_ant **ants, t_room ***paths, int n_paths)
 		j = 0;
 		while (j < n_paths)
 		{
-			if (move_ant(ants[i], paths[j])) {
-				ft_printf("L%d-%s ", i+1, ants[i]->pos->name);
+			if (move_ant(ants[i], paths[j]))
+			{
+				ft_printf("L%d-%s ", i + 1, ants[i]->pos->name);
 				moves++;
 			}
 			j++;
 		}
 		i++;
 	}
-	return moves;
+	return (moves);
 }
 
-void	simulate(t_ant **ants, t_room ***paths, int n_paths)
+void		simulate(t_ant **ants, t_room ***paths, int n_paths)
 {
 	while (move_ants(ants, paths, n_paths))
 	{

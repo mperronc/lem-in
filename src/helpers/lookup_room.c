@@ -1,6 +1,18 @@
-#include "../../incl/lem-in.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   lookup_room.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/04/25 11:16:36 by mperronc          #+#    #+#             */
+/*   Updated: 2017/04/25 11:23:52 by mperronc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-t_room *lookup_start(t_room **rooms)
+#include "../../incl/lemin.h"
+
+t_room	*lookup_start(t_room **rooms)
 {
 	int	i;
 
@@ -14,7 +26,7 @@ t_room *lookup_start(t_room **rooms)
 	return (NULL);
 }
 
-t_room *lookup_end(t_room **rooms)
+t_room	*lookup_end(t_room **rooms)
 {
 	int	i;
 
@@ -28,7 +40,7 @@ t_room *lookup_end(t_room **rooms)
 	return (NULL);
 }
 
-t_room *lookup_room(t_room **rooms, char *name)
+t_room	*lookup_room(t_room **rooms, char *name)
 {
 	int	crawl;
 

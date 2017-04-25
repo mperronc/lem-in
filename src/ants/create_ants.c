@@ -1,8 +1,19 @@
-/* Quarante-deux */
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   create_ants.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/04/25 11:16:08 by mperronc          #+#    #+#             */
+/*   Updated: 2017/04/25 11:23:52 by mperronc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include "../../incl/lem-in.h"
+#include "../../incl/lemin.h"
 
-t_ant	**create_ants(t_hex *hex) {
+t_ant	**create_ants(t_hex *hex)
+{
 	t_ant	**ants;
 	int		i;
 

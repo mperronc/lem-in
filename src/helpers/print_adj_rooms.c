@@ -1,6 +1,18 @@
-#include "../../incl/lem-in.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_adj_rooms.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/04/25 11:16:49 by mperronc          #+#    #+#             */
+/*   Updated: 2017/04/25 11:23:52 by mperronc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void print_adj_rooms(t_room *room)
+#include "../../incl/lemin.h"
+
+void	print_adj_rooms(t_room *room)
 {
 	int	i;
 

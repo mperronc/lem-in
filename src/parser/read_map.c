@@ -1,6 +1,16 @@
-/* 42 Header */
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   read_map.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/04/25 11:17:32 by mperronc          #+#    #+#             */
+/*   Updated: 2017/04/25 11:28:44 by mperronc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include "../../incl/lem-in.h"
+#include "../../incl/lemin.h"
 
 char	*ft_strjoinfree(char *s1, char *s2)
 {
@@ -15,7 +25,7 @@ char	*ft_strjoinfree(char *s1, char *s2)
 	return (new);
 }
 
-char **read_map(void)
+char	**read_map(void)
 {
 	char *line;
 	char *map;

@@ -1,8 +1,18 @@
-/* 42 HEADER HERE */
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   find_path.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/04/25 11:17:48 by mperronc          #+#    #+#             */
+/*   Updated: 2017/04/25 11:33:16 by mperronc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include "../../incl/lem-in.h"
+#include "../../incl/lemin.h"
 
-static t_room *pick_min(t_room *cur, int status)
+static t_room	*pick_min(t_room *cur, int status)
 {
 	int		i;
 	t_room	*min;
@@ -13,7 +23,8 @@ static t_room *pick_min(t_room *cur, int status)
 	{
 		if (cur->adjs[i]->type == START)
 			return (cur->adjs[i]);
-		if (cur->adjs[i]->used == status) {
+		if (cur->adjs[i]->used == status)
+		{
 			if (!min || cur->adjs[i]->weight < min->weight)
 				min = cur->adjs[i];
 		}
@@ -22,22 +33,22 @@ static t_room *pick_min(t_room *cur, int status)
 	return (min);
 }
 
-static t_room *pick_next(t_room *cur, int *flag)
+static t_room	*pick_next(t_room *cur, int *flag)
 {
 	t_room	*next;
 
-	if (*flag == 0) {
+	if (*flag == 0)
+	{
 		next = pick_min(cur, FREE);
 		if (!next)
 			*flag = 1;
 	}
-	if (*flag == 1) {
+	if (*flag == 1)
 		next = pick_min(cur, USED);
-	}
 	return (next);
 }
 
-t_room	**find_path(t_room *end, t_hex *hex)
+t_room		**find_path(t_room *end, t_hex *hex)
 {
 	t_room	*crawl;
 	t_room	**path;

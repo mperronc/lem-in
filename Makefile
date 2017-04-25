@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mperronc <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/02 12:07:00 by mperronc          #+#    #+#              #
-#    Updated: 2016/03/23 15:52:51 by mperronc         ###   ########.fr        #
+#    Updated: 2017/04/25 11:34:04 by mperronc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 
 SRC_PATH = ./src/
 
-SRC_NAME =	lem-in.c \
+SRC_NAME =	lemin.c \
 			parser/read_map.c \
 			parser/parse_map.c \
 			parser/make_rooms.c \

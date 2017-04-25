@@ -1,7 +1,20 @@
-#include "../../incl/lem-in.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   validate_map.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/04/25 11:17:36 by mperronc          #+#    #+#             */
+/*   Updated: 2017/04/25 11:30:54 by mperronc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-static int	map_len(char **map) {
-	int i;
+#include "../../incl/lemin.h"
+
+static int	map_len(char **map)
+{
+	int	i;
 
 	i = 0;
 	while (map[i])
@@ -9,25 +22,26 @@ static int	map_len(char **map) {
 	return (i);
 }
 
-static int room_format(char *line)
+static int	room_format(char *line)
 {
-	char **sp;
+	char	**sp;
 	int		ok;
 
 	ok = 0;
 	sp = ft_strsplit(line, ' ');
 	if (sp[2] && !sp[3])
 	{
-		if (sp[0][0] != 'L' && !ft_strchr(sp[0], '-') && only_numbers(sp[1]) && only_numbers(sp[2]))
+		if (sp[0][0] != 'L' && !ft_strchr(sp[0], '-')
+			&& only_numbers(sp[1]) && only_numbers(sp[2]))
 			ok = 1;
 	}
 	free_tab(sp);
 	return (ok);
 }
 
-static int link_format(char *line)
+static int	link_format(char *line)
 {
-	char **sp;
+	char	**sp;
 	int		ok;
 
 	ok = 0;
@@ -38,11 +52,12 @@ static int link_format(char *line)
 	return (ok);
 }
 
-static int line_is_valid(char *line, int *stage)
+static int	line_is_valid(char *line, int *stage)
 {
 	if (line[0] == '#')
 		return (1);
-	if (*stage == 0) {
+	if (*stage == 0)
+	{
 		*stage = 1;
 		return (only_numbers(line));
 	}
@@ -60,7 +75,7 @@ static int line_is_valid(char *line, int *stage)
 	return (0);
 }
 
-char	**validate_map(char **map)
+char		**validate_map(char **map)
 {
 	char	**val_map;
 	int		i;
@@ -69,7 +84,6 @@ char	**validate_map(char **map)
 	i = 0;
 	stage = 0;
 	val_map = (char **)malloc(sizeof(char *) * map_len(map) + 1);
-
 	while (map[i] && line_is_valid(map[i], &stage))
 	{
 		val_map[i] = ft_strdup(map[i]);

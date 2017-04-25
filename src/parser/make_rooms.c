@@ -1,8 +1,18 @@
-/* 42 Header */
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   make_rooms.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/04/25 11:17:10 by mperronc          #+#    #+#             */
+/*   Updated: 2017/04/25 11:29:32 by mperronc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include "../../incl/lem-in.h"
+#include "../../incl/lemin.h"
 
-static t_room *make_room(char *line, int n, int type, t_hex *hex)
+static t_room	*make_room(char *line, int n, int type, t_hex *hex)
 {
 	t_room	*room;
 	char	**sline;
@@ -23,15 +33,16 @@ static t_room *make_room(char *line, int n, int type, t_hex *hex)
 	return (room);
 }
 
-t_room	**make_rooms(char **split_map, t_hex *hex)
+t_room			**make_rooms(char **split_map, t_hex *hex)
 {
 	t_room		**rooms;
 	int			map_i;
 	int			room_n;
 	int			type;
-	
+
 	rooms = allocate_rooms(split_map, hex);
-	if (rooms) {
+	if (rooms)
+	{
 		room_n = 0;
 		map_i = 1;
 		while (split_map[map_i])
@@ -50,7 +61,7 @@ t_room	**make_rooms(char **split_map, t_hex *hex)
 			map_i += 1;
 			rooms[room_n] = NULL;
 		}
-		return rooms;
+		return (rooms);
 	}
 	return (NULL);
 }
