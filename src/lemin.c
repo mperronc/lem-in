@@ -6,7 +6,7 @@
 /*   By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 11:18:15 by mperronc          #+#    #+#             */
-/*   Updated: 2017/04/25 14:54:31 by mperronc         ###   ########.fr       */
+/*   Updated: 2017/05/01 17:28:43 by mperronc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int			main(void)
 	if (map)
 	{
 		map = validate_map(map);
-		if (map && map[0])
+		if (map && map[0] && only_one_start_end(map))
 			hex = parse_map(map);
 	}
 	if (hex)

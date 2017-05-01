@@ -6,7 +6,7 @@
 #    By: mperronc <mperronc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/02 12:07:00 by mperronc          #+#    #+#              #
-#    Updated: 2017/04/25 15:45:15 by mperronc         ###   ########.fr        #
+#    Updated: 2017/05/01 17:28:08 by mperronc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,8 @@ SRC_NAME =	lemin.c \
 			free_lemin.c \
 			create_ants.c \
 			print_ants.c \
-			move_ant.c
+			move_ant.c \
+			only_one_start_end.c
 
 OBJ_PATH = obj/
 
